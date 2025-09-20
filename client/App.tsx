@@ -8,6 +8,13 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import EcoActivity from "./pages/EcoActivity";
+import DNA from "./pages/DNA";
+import Challenges from "./pages/Challenges";
+import Feed from "./pages/Feed";
+import Rewards from "./pages/Rewards";
+import Games from "./pages/Games";
+import Auth from "./pages/Auth";
 
 const queryClient = new QueryClient();
 
