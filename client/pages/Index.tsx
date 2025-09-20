@@ -1,9 +1,11 @@
 import PixelLayout from "@/components/PixelLayout";
 import { useState } from "react";
 import { Leaf, Gift, Zap, Trophy, BotIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Index() {
   const [ecoPoints] = useState(43);
+  const [showJoinSuccess, setShowJoinSuccess] = useState(false);
   const leaderboard = [
     { name: "Aarav", pts: 320 },
     { name: "Mia", pts: 289 },
@@ -25,11 +27,11 @@ export default function Index() {
         </section>
         <aside className="pixel-card space-y-2">
           <div className="font-pixel">Highlights</div>
-          <div className="grid grid-cols-2 gap-2 text-sm">
-            <a href="/dna" className="pixel-card flex items-center gap-2"><Leaf size={16}/>Eco-DNA</a>
-            <a href="/rewards" className="pixel-card flex items-center gap-2"><Gift size={16}/>Rewards</a>
-            <a href="/eco" className="pixel-card flex items-center gap-2"><Zap size={16}/>Log Activity</a>
-            <a href="/challenges" className="pixel-card flex items-center gap-2"><Trophy size={16}/>Leaderboards</a>
+          <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 text-sm">
+            <Link to="/dna" className="pixel-card flex items-center gap-2"><Leaf size={16}/>Eco-DNA</Link>
+            <Link to="/rewards" className="pixel-card flex items-center gap-2"><Gift size={16}/>Rewards</Link>
+            <Link to="/eco" className="pixel-card flex items-center gap-2"><Zap size={16}/>Log Activity</Link>
+            <Link to="/challenges" className="pixel-card flex items-center gap-2"><Trophy size={16}/>Leaderboards</Link>
           </div>
         </aside>
         <section className="md:col-span-2 pixel-card">
@@ -57,9 +59,9 @@ export default function Index() {
         <section className="md:col-span-2 pixel-card">
           <div className="font-pixel mb-2">Quick Actions</div>
           <div className="grid grid-cols-3 gap-3">
-            <a href="/dna" className="pixel-button text-center">DNA</a>
-            <a href="/eco" className="pixel-button text-center">Log</a>
-            <a href="/rewards" className="pixel-button text-center">Rewards</a>
+            <Link to="/dna" className="pixel-button text-center">DNA</Link>
+            <Link to="/eco" className="pixel-button text-center">Log</Link>
+            <Link to="/rewards" className="pixel-button text-center">Rewards</Link>
           </div>
         </section>
         <section className="pixel-card flex items-center justify-between gap-3">
@@ -67,7 +69,7 @@ export default function Index() {
             <div className="font-pixel mb-1">Today's Challenge</div>
             <div className="flex items-center gap-2"><span>Bike or walk 3km</span><span className="text-xs opacity-70">Time left: 06:08:47</span></div>
           </div>
-          <a href="/challenges" className="pixel-button">Join</a>
+          <button onClick={()=>setShowJoinSuccess(true)} className="pixel-button">Join</button>
         </section>
         <section className="pixel-card md:col-span-3">
           <div className="font-pixel mb-2">Welcome</div>
@@ -78,6 +80,16 @@ export default function Index() {
           </div>
         </section>
       </div>
+
+      {showJoinSuccess && (
+        <div role="dialog" aria-modal className="fixed inset-0 bg-black/40 grid place-items-center p-4">
+          <div className="pixel-card max-w-md w-full text-center space-y-3">
+            <div className="font-pixel text-lg">Success</div>
+            <p>use the color theme i am sending you and make sure no point is missed and everything works properly</p>
+            <button className="pixel-button w-full" onClick={()=>setShowJoinSuccess(false)}>Okay</button>
+          </div>
+        </div>
+      )}
     </PixelLayout>
   );
 }
