@@ -1,62 +1,83 @@
-import { DemoResponse } from "@shared/api";
-import { useEffect, useState } from "react";
+import PixelLayout from "@/components/PixelLayout";
+import { useState } from "react";
+import { Leaf, Gift, Zap, Trophy, BotIcon } from "lucide-react";
 
 export default function Index() {
-  const [exampleFromServer, setExampleFromServer] = useState("");
-  // Fetch users on component mount
-  useEffect(() => {
-    fetchDemo();
-  }, []);
-
-  // Example of how to fetch data from the server (if needed)
-  const fetchDemo = async () => {
-    try {
-      const response = await fetch("/api/demo");
-      const data = (await response.json()) as DemoResponse;
-      setExampleFromServer(data.message);
-    } catch (error) {
-      console.error("Error fetching hello:", error);
-    }
-  };
+  const [ecoPoints] = useState(43);
+  const leaderboard = [
+    { name: "Aarav", pts: 320 },
+    { name: "Mia", pts: 289 },
+    { name: "Noah", pts: 270 },
+    { name: "Zara", pts: 244 },
+  ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: FUSION_GENERATION_APP_PLACEHOLDER replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
-        </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
-        </p>
-        <p className="mt-4 hidden max-w-md">{exampleFromServer}</p>
+    <PixelLayout>
+      <div className="grid md:grid-cols-3 gap-4">
+        <section className="md:col-span-2 pixel-card">
+          <div className="flex items-center gap-3">
+            <div className="pixel-card flex items-center gap-2 p-2"><Trophy className="text-foreground" size={18}/><span className="font-pixel text-sm">ECO POINTS</span></div>
+            <div className="ml-auto flex items-center gap-3">
+              <div className="pixel-card px-3 py-2 text-xl font-bold">{ecoPoints}</div>
+              <div>Good afternoon, Shreya<br/><span className="opacity-70">Grow your Eco-DNA today!</span></div>
+            </div>
+          </div>
+        </section>
+        <aside className="pixel-card space-y-2">
+          <div className="font-pixel">Highlights</div>
+          <div className="grid grid-cols-2 gap-2 text-sm">
+            <a href="/dna" className="pixel-card flex items-center gap-2"><Leaf size={16}/>Eco-DNA</a>
+            <a href="/rewards" className="pixel-card flex items-center gap-2"><Gift size={16}/>Rewards</a>
+            <a href="/eco" className="pixel-card flex items-center gap-2"><Zap size={16}/>Log Activity</a>
+            <a href="/challenges" className="pixel-card flex items-center gap-2"><Trophy size={16}/>Leaderboards</a>
+          </div>
+        </aside>
+        <section className="md:col-span-2 pixel-card">
+          <div className="font-pixel mb-2">Talking Tree</div>
+          <div className="flex gap-3 items-center">
+            <div className="w-10 h-10 rounded-full bg-primary"/>
+            <div className="flex-1 pixel-border bg-card px-3 py-2">Refill your bottle instead of buying plastic.</div>
+            <BotIcon />
+          </div>
+        </section>
+        <aside className="pixel-card">
+          <div className="font-pixel mb-2">Leaderboard</div>
+          <ol className="space-y-2">
+            {leaderboard.map((p, i) => (
+              <li key={p.name} className="flex items-center gap-2">
+                <span className="pixel-card w-6 h-6 grid place-items-center text-xs">{i+1}</span>
+                <div className="flex-1">
+                  <div className="flex justify-between text-sm"><span>{p.name}</span><span>{p.pts} pts</span></div>
+                  <div className="h-2 bg-secondary rounded-sm overflow-hidden"><div className="h-full bg-primary" style={{width: `${(p.pts/320)*100}%`}}/></div>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </aside>
+        <section className="md:col-span-2 pixel-card">
+          <div className="font-pixel mb-2">Quick Actions</div>
+          <div className="grid grid-cols-3 gap-3">
+            <a href="/dna" className="pixel-button text-center">DNA</a>
+            <a href="/eco" className="pixel-button text-center">Log</a>
+            <a href="/rewards" className="pixel-button text-center">Rewards</a>
+          </div>
+        </section>
+        <section className="pixel-card flex items-center justify-between gap-3">
+          <div>
+            <div className="font-pixel mb-1">Today's Challenge</div>
+            <div className="flex items-center gap-2"><span>Bike or walk 3km</span><span className="text-xs opacity-70">Time left: 06:08:47</span></div>
+          </div>
+          <a href="/challenges" className="pixel-button">Join</a>
+        </section>
+        <section className="pixel-card md:col-span-3">
+          <div className="font-pixel mb-2">Welcome</div>
+          <div className="flex flex-wrap gap-2 items-center">
+            <span>Sign in to sync your progress and compete with friends.</span>
+            <a href="/auth" className="pixel-button bg-foreground text-background">Google</a>
+            <a href="/auth" className="pixel-button bg-foreground text-background">Facebook</a>
+          </div>
+        </section>
       </div>
-    </div>
+    </PixelLayout>
   );
 }
