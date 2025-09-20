@@ -82,7 +82,7 @@ export default function EcoActivity() {
             <div className="pixel-card max-w-md w-full text-center space-y-4">
               <div className="font-pixel">Spin the Wheel!</div>
               <div className="aspect-square w-64 mx-auto rounded-full border-[6px] border-foreground grid place-items-center relative overflow-hidden">
-                <div className="absolute w-full h-full animate-spin [animation-duration:3s] bg-[conic-gradient(var(--tw-gradient-stops))] from-hsl(var(--accent)) via-hsl(var(--secondary)) to-hsl(var(--primary))"/>
+                <div className="absolute w-full h-full animate-spin [animation-duration:3s]" style={{background: `conic-gradient(hsl(var(--accent)), hsl(var(--secondary)), hsl(var(--primary)), hsl(var(--accent)))`}}/>
                 <div className="relative z-10 pixel-card">Good luck!</div>
               </div>
               <button className="pixel-button w-full" onClick={()=>setShowSpin(false)}>Close</button>
