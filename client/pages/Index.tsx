@@ -84,8 +84,7 @@ export default function Index() {
       {showJoinSuccess && (
         <div role="dialog" aria-modal className="fixed inset-0 bg-black/40 grid place-items-center p-4">
           <div className="pixel-card max-w-md w-full text-center space-y-3">
-            <div className="font-pixel text-lg">Success</div>
-            <p>use the color theme i am sending you and make sure no point is missed and everything works properly</p>
+            <div className="font-pixel text-lg">Success<br/>use the color theme i am sending you and make sure no point is missed and everything works properly</div>
             <button className="pixel-button w-full" onClick={()=>setShowJoinSuccess(false)}>Okay</button>
           </div>
         </div>
