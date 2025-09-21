@@ -15,6 +15,7 @@ import Feed from "./pages/Feed";
 import Rewards from "./pages/Rewards";
 import Games from "./pages/Games";
 import Carbon from "./pages/Carbon";
+import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
 
 const queryClient = new QueryClient();
