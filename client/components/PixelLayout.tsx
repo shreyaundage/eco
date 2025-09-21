@@ -67,21 +67,14 @@ export default function PixelLayout({ children }: { children: ReactNode }) {
             );
           })}
 
-          {/* center carbon button */}
-          <Link
-            to="/ai-carbon"
-            aria-label="AI Carbon"
-            className="flex items-center justify-center"
-          >
-            <div
-              className="carbon-button carbon-glow"
-              title="AI Based Carbon Saving Calculator"
-            >
+                {/* center camera CTA */}
+          <Link to="/games" aria-label="Center Camera" className="flex items-center justify-center">
+            <div className="carbon-button carbon-glow" title="Camera">
               <Camera size={18} />
             </div>
           </Link>
 
-          {/* right 3 */}
+          {/* right items (4) */}
           {RIGHT.map(({ to, label, icon: Icon }) => {
             const active = pathname === to;
             return (
