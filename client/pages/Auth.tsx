@@ -74,9 +74,6 @@ export default function Auth() {
             </button>
           </form>
 
-          <div className="text-center text-sm opacity-70 font-pixel">
-            No validation — enter any values to continue.
-          </div>
         </div>
 
         <div className="text-center mt-4">
