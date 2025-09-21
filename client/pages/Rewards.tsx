@@ -1,5 +1,6 @@
 import PixelLayout from "@/components/PixelLayout";
 import { useState } from "react";
+import SpinWheel from "@/components/SpinWheel";
 
 const items = [
   { name: "Canteen Coupon", cost: 10 },
@@ -11,6 +12,16 @@ const items = [
 export default function Rewards() {
   const [coins, setCoins] = useState(10);
   const [history, setHistory] = useState<string[]>([]);
+  const rewards = [
+    { id: 'coins', label: '10 EcoCoins', color: '#F4A261' },
+    { id: 'badge', label: 'Badge', color: '#E27D60' },
+    { id: 'perk', label: 'Canteen Coupon', color: '#6B705C' },
+    { id: 'discount', label: 'Wi‑Fi Boost', color: '#145956' },
+    { id: 'bottle', label: 'Eco Bottle', color: '#b2916f' },
+    { id: 'pass', label: 'Library Pass', color: '#F4A261' },
+    { id: 'spin', label: 'Free Spin', color: '#E27D60' },
+    { id: 'rare', label: 'Rare Item', color: '#6B705C' },
+  ];
 
   const buy = (name: string, cost: number) => {
     if (coins < cost) return;
@@ -41,8 +52,9 @@ export default function Rewards() {
             </div>
             <div>
               <div className="font-pixel mb-2">Spinning Wheel</div>
-              <div className="pixel-card h-40 grid place-items-center">Spin-to-win coming alive ✨</div>
-              <button className="pixel-button mt-2">Spin</button>
+              <div className="pixel-card p-4">
+                <SpinWheel rewards={rewards} onResult={(r)=>{ setHistory(h=>[`Won ${r.label}`,...h]); if(r.id==='coins') setCoins(c=>c+10); }} />
+              </div>
             </div>
           </section>
           <aside className="pixel-card space-y-3">
