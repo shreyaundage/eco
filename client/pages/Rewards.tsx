@@ -12,6 +12,7 @@ const items = [
 export default function Rewards() {
   const [coins, setCoins] = useState(10);
   const [history, setHistory] = useState<string[]>([]);
+  const [spinResult, setSpinResult] = useState<string|null>(null);
   const rewards = [
     { id: 'coins', label: '10 EcoCoins', color: '#F4A261' },
     { id: 'badge', label: 'Badge', color: '#E27D60' },
