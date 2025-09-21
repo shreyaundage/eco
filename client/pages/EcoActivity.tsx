@@ -80,6 +80,15 @@ export default function EcoActivity() {
           </section>
         </div>
 
+        {showConfirm && (
+          <div role="dialog" aria-modal className="fixed inset-0 bg-black/40 grid place-items-center p-4">
+            <div className="pixel-card max-w-sm w-full text-center space-y-4">
+              <div className="font-pixel text-lg">Successfully added to your account.</div>
+              <button className="pixel-button w-full" onClick={()=>{ setShowConfirm(false); setShowSpin(true); }}>Continue</button>
+            </div>
+          </div>
+        )}
+
         {showSpin && (
           <div role="dialog" aria-modal className="fixed inset-0 bg-black/40 grid place-items-center p-4">
             <div className="pixel-card max-w-md w-full text-center space-y-4">
