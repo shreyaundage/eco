@@ -84,7 +84,11 @@ export default function Games() {
             <div className="pixel-card h-40 grid place-items-center">
               Click/Upload Photo
             </div>
-            <p className="text-sm mt-2">This tool moved to a dedicated AI Based Carbon Saving Calculator — use the Camera button centered in the bottom navigation to access it.</p>
+            <p className="text-sm mt-2">
+              This tool moved to a dedicated AI Based Carbon Saving Calculator —
+              use the Camera button centered in the bottom navigation to access
+              it.
+            </p>
           </section>
         </div>
       </div>

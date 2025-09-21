@@ -67,8 +67,12 @@ export default function PixelLayout({ children }: { children: ReactNode }) {
             );
           })}
 
-                {/* center camera CTA */}
-          <Link to="/games" aria-label="Center Camera" className="flex items-center justify-center">
+          {/* center camera CTA */}
+          <Link
+            to="/games"
+            aria-label="Center Camera"
+            className="flex items-center justify-center"
+          >
             <div className="carbon-button carbon-glow" title="Camera">
               <Camera size={18} />
             </div>
