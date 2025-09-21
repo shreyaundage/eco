@@ -88,6 +88,14 @@ const App = () => (
             }
           />
           <Route
+            path="/carbon"
+            element={
+              <RequireAuth>
+                <Carbon />
+              </RequireAuth>
+            }
+          />
+          <Route
             path="/admin"
             element={
               <RequireAuth>
