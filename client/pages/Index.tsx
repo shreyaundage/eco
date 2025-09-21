@@ -1,6 +1,6 @@
 import PixelLayout from "@/components/PixelLayout";
-import { useState } from "react";
-import { Leaf, Gift, Zap, Trophy, BotIcon } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Leaf, Gift, Zap, Trophy, BotIcon, Camera } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Index() {
