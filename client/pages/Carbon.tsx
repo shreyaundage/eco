@@ -35,10 +35,8 @@ export default function Carbon() {
   return (
     <PixelLayout>
       <div className="space-y-6">
-        <h1 className="font-pixel text-2xl">Carbon Emission Calculator</h1>
-        <p className="font-pixel opacity-80">
-          Upload a photo of a plant or tree to discover its carbon impact!
-        </p>
+        <h1 className="font-pixel text-2xl">AI Based Carbon Saving Calculator</h1>
+        <p className="font-pixel opacity-80">Upload a photo of a plant or tree to discover its carbon impact!</p>
 
         <div className="pixel-card">
           <div className="grid md:grid-cols-2 gap-4 items-start">
