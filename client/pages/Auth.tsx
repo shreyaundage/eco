@@ -1,34 +1,80 @@
 import PixelLayout from "@/components/PixelLayout";
 
-const slides = [
-  { title: "Eco-DNA", text: "Discover your traits" },
-  { title: "Rewards System", text: "Spin & redeem" },
-  { title: "Activity Logging", text: "Earn EcoCoins" },
-  { title: "Talking Trees", text: "Chat eco tips" },
-  { title: "Scavenger Hunts", text: "Fix the campus" },
-];
+import { useState } from "react";
+import PixelLayout from "../components/PixelLayout";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Auth() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = (location.state as any)?.from?.pathname || "/";
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setSubmitting(true);
+    // Accept any values; gate the app by setting a simple localStorage flag
+    setTimeout(() => {
+      try {
+        localStorage.setItem("eco_logged_in", "1");
+      } catch (err) {
+        // ignore storage errors
+      }
+      setSubmitting(false);
+      navigate(from, { replace: true });
+    }, 600);
+  }
+
   return (
     <PixelLayout>
-      <div className="space-y-6 max-w-2xl mx-auto">
-        <h1 className="font-pixel text-xl text-center">Sign Up · Log In</h1>
-        <div className="overflow-x-auto">
-          <div className="flex gap-3 min-w-max">
-            {slides.map((s, i) => (
-              <div key={i} className="pixel-card w-64 shrink-0">
-                <div className="h-28 bg-secondary mb-2"/>
-                <div className="font-semibold">{s.title}</div>
-                <div className="text-sm opacity-70">{s.text}</div>
-              </div>
-            ))}
-          </div>
+      <div className="max-w-md mx-auto p-4">
+        <div className="pixel-card p-6 space-y-4">
+          <h1 className="font-pixel text-center text-lg">Welcome to Eco Campus</h1>
+          <p className="text-center text-sm opacity-80">Sign in to track your progress and unlock rewards.</p>
+
+          <form onSubmit={handleSubmit} className="space-y-3">
+            <div>
+              <label className="block text-xs mb-1 font-pixel">Username or Email</label>
+              <input
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                className="w-full px-3 py-2 rounded-sm pixel-border bg-card"
+                placeholder="any username"
+                aria-label="username"
+                required={false}
+              />
+            </div>
+            <div>
+              <label className="block text-xs mb-1 font-pixel">Password</label>
+              <input
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                type="password"
+                className="w-full px-3 py-2 rounded-sm pixel-border bg-card"
+                placeholder="any password"
+                aria-label="password"
+                required={false}
+              />
+            </div>
+
+            <button
+              type="submit"
+              className={`pixel-button w-full ${submitting ? "opacity-80 animate-pulse" : ""}`}
+              aria-busy={submitting}
+            >
+              {submitting ? "Signing in..." : "Sign In"}
+            </button>
+          </form>
+
+          <div className="text-center text-sm opacity-70 font-pixel">No validation — enter any values to continue.</div>
         </div>
-        <div className="grid sm:grid-cols-2 gap-3">
-          <button className="pixel-button w-full bg-foreground text-background">Continue with Google</button>
-          <button className="pixel-button w-full bg-foreground text-background">Continue with Facebook</button>
+
+        <div className="text-center mt-4">
+          <a href="/" className="text-xs opacity-70">Continue as guest (still requires login)</a>
         </div>
-        <div className="text-center opacity-70">Track. Play. Grow.</div>
       </div>
     </PixelLayout>
   );
