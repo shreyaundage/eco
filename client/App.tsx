@@ -16,6 +16,7 @@ import Rewards from "./pages/Rewards";
 import Games from "./pages/Games";
 import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
+import RequireAuth from "./components/AuthGate";
 
 const queryClient = new QueryClient();
 
@@ -26,15 +27,18 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/eco" element={<EcoActivity />} />
-          <Route path="/dna" element={<DNA />} />
-          <Route path="/challenges" element={<Challenges />} />
-          <Route path="/feed" element={<Feed />} />
-          <Route path="/rewards" element={<Rewards />} />
-          <Route path="/games" element={<Games />} />
-          <Route path="/admin" element={<Admin />} />
           <Route path="/auth" element={<Auth />} />
+
+          {/* Protected routes - require passing through the login form first */}
+          <Route path="/" element={<RequireAuth><Index /></RequireAuth>} />
+          <Route path="/eco" element={<RequireAuth><EcoActivity /></RequireAuth>} />
+          <Route path="/dna" element={<RequireAuth><DNA /></RequireAuth>} />
+          <Route path="/challenges" element={<RequireAuth><Challenges /></RequireAuth>} />
+          <Route path="/feed" element={<RequireAuth><Feed /></RequireAuth>} />
+          <Route path="/rewards" element={<RequireAuth><Rewards /></RequireAuth>} />
+          <Route path="/games" element={<RequireAuth><Games /></RequireAuth>} />
+          <Route path="/admin" element={<RequireAuth><Admin /></RequireAuth>} />
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
