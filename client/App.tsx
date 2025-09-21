@@ -32,6 +32,7 @@ const App = () => (
           <Route path="/challenges" element={<Challenges />} />
           <Route path="/feed" element={<Feed />} />
           <Route path="/rewards" element={<Rewards />} />
+          <Route path="/carbon" element={<Carbon />} />
           <Route path="/games" element={<Games />} />
           <Route path="/auth" element={<Auth />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
