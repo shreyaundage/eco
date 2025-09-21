@@ -50,7 +50,7 @@ export default function PixelLayout({ children }: { children: ReactNode }) {
         {children}
       </main>
       <nav className="sticky bottom-0 z-20 bg-card/90 backdrop-blur">
-        <div className="max-w-6xl mx-auto grid grid-cols-8 gap-1 p-2 items-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-9 gap-1 p-2 items-center">
           {/* left 3 */}
           {LEFT.map(({ to, label, icon: Icon }) => {
             const active = pathname === to;
