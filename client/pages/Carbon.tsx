@@ -30,7 +30,8 @@ function CameraAssist() {
               setDetails({
                 bioName: "Ficus benghalensis",
                 carbon: "~50–200 grams CO₂ per day",
-                native: "Indian subcontinent — India, Sri Lanka, Pakistan, Bangladesh",
+                native:
+                  "Indian subcontinent — India, Sri Lanka, Pakistan, Bangladesh",
                 oxygen: "~200–300 liters per day",
               });
               setShowPopup(true);
@@ -51,7 +52,9 @@ function CameraAssist() {
         ) : (
           <div className="text-center">
             <div className="font-pixel mb-2">Use Camera / Upload</div>
-            <div className="text-sm opacity-70">Snap a photo of an activity or product</div>
+            <div className="text-sm opacity-70">
+              Snap a photo of an activity or product
+            </div>
           </div>
         )}
 
@@ -102,7 +105,9 @@ function CameraAssist() {
       {details && !showPopup && (
         <div className="pixel-card mt-3 p-3">
           <div className="font-pixel">AI Estimate</div>
-          <div className="mt-2 text-sm opacity-80">Estimated annual saving: ~12 kg CO₂e (approx.)</div>
+          <div className="mt-2 text-sm opacity-80">
+            Estimated annual saving: ~12 kg CO₂e (approx.)
+          </div>
         </div>
       )}
     </div>
@@ -113,17 +118,28 @@ export default function Carbon() {
   return (
     <PixelLayout>
       <div className="space-y-4">
-        <h1 className="font-pixel text-xl">AI Based Carbon Saving Calculator</h1>
+        <h1 className="font-pixel text-xl">
+          AI Based Carbon Saving Calculator
+        </h1>
         <section className="pixel-card">
-          <p className="mb-3 text-sm opacity-80">Use the camera to analyze items or activities and get an estimated carbon saving and disposal guidance.</p>
+          <p className="mb-3 text-sm opacity-80">
+            Use the camera to analyze items or activities and get an estimated
+            carbon saving and disposal guidance.
+          </p>
           <CameraAssist />
         </section>
 
         <section className="pixel-card">
           <div className="font-pixel mb-2">Tips & Guidance</div>
           <ul className="text-sm opacity-80 list-inside">
-            <li>Try photographing packaging, appliances, or receipts for best results.</li>
-            <li>The AI provides an estimate only — use it as a guide to make greener choices.</li>
+            <li>
+              Try photographing packaging, appliances, or receipts for best
+              results.
+            </li>
+            <li>
+              The AI provides an estimate only — use it as a guide to make
+              greener choices.
+            </li>
           </ul>
         </section>
       </div>
