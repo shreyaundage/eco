@@ -133,3 +133,14 @@
 .pixel-button:active { transform: translateY(2px); box-shadow: 0 2px 0 hsl(var(--pixel-shadow)); }
 
 .pixel-icon { image-rendering: pixelated; }
+
+/* Carbon button special */
+.carbon-button {
+  @apply rounded-full w-14 h-14 grid place-items-center text-sm font-pixel;
+  background: linear-gradient(180deg, hsl(var(--secondary)) 0%, hsl(var(--primary)) 100%);
+  border: 4px solid hsl(var(--pixel-border));
+  box-shadow: 0 6px 0 hsl(var(--pixel-shadow));
+  transform: translateY(0);
+}
+.carbon-button:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 10px 0 hsl(var(--pixel-shadow)); }
+.carbon-glow { box-shadow: 0 0 14px rgba(20,89,84,0.2); }
