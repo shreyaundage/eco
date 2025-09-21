@@ -68,12 +68,8 @@ export default function PixelLayout({ children }: { children: ReactNode }) {
           })}
 
           {/* center carbon button */}
-          <Link
-            to="/carbon"
-            aria-label="Carbon"
-            className="flex items-center justify-center"
-          >
-            <div className="carbon-button carbon-glow">
+          <Link to="/ai-carbon" aria-label="AI Carbon" className="flex items-center justify-center">
+            <div className="carbon-button carbon-glow" title="AI Based Carbon Saving Calculator">
               <Camera size={18} />
             </div>
           </Link>
