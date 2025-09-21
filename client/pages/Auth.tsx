@@ -1,7 +1,6 @@
 import PixelLayout from "@/components/PixelLayout";
 
 import { useState } from "react";
-import PixelLayout from "../components/PixelLayout";
 import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Auth() {
