@@ -54,10 +54,20 @@ export default function Rewards() {
             <div>
               <div className="font-pixel mb-2">Spinning Wheel</div>
               <div className="pixel-card p-4">
-                <SpinWheel rewards={rewards} onResult={(r)=>{ setHistory(h=>[`Won ${r.label}`,...h]); if(r.id==='coins') setCoins(c=>c+10); }} />
+                <SpinWheel rewards={rewards} onResult={(r)=>{ setHistory(h=>[`Won ${r.label}`,...h]); if(r.id==='coins') setCoins(c=>c+10); setSpinResult(r.label); }} />
               </div>
             </div>
           </section>
+
+          {spinResult && (
+            <div role="dialog" aria-modal className="fixed inset-0 bg-black/40 grid place-items-center p-4">
+              <div className="pixel-card p-4 max-w-sm w-full text-center space-y-3">
+                <div className="font-pixel">You won: {spinResult}</div>
+                <div className="text-sm opacity-80">Congrats! Your reward has been added.</div>
+                <button className="pixel-button" onClick={()=>setSpinResult(null)}>Close</button>
+              </div>
+            </div>
+          )}
           <aside className="pixel-card space-y-3">
             <div className="grid grid-cols-2 gap-2 text-center">
               <div className="pixel-card"><div className="text-2xl">{coins}</div><div className="text-xs">EcoCoins</div></div>
