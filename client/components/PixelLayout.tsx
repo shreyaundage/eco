@@ -40,9 +40,18 @@ export default function PixelLayout({ children }: { children: ReactNode }) {
             <div className="text-xs opacity-80 -mt-1">Track. Play. Grow.</div>
           </div>
           <div className="ml-auto flex gap-2 items-center">
-            <Link to="/auth" className="pixel-button text-xs px-3 py-2">
+            <button
+              onClick={() => {
+                try {
+                  localStorage.removeItem("eco_logged_in");
+                } catch (err) {}
+                // navigate to auth page
+                window.location.href = "/auth";
+              }}
+              className="pixel-button text-xs px-3 py-2"
+            >
               Sign Out
-            </Link>
+            </button>
           </div>
         </div>
       </header>
