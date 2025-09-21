@@ -15,10 +15,10 @@ const LEFT = [
   { to: "/", label: "Home", icon: Home },
   { to: "/eco", label: "EcoActivity", icon: Leaf },
   { to: "/dna", label: "DNA", icon: Atom },
+  { to: "/challenges", label: "Challenges", icon: CalendarDays },
 ];
 const RIGHT = [
   { to: "/feed", label: "Feed", icon: Images },
-  { to: "/challenges", label: "Challenges", icon: CalendarDays },
   { to: "/rewards", label: "Rewards", icon: Gift },
   { to: "/games", label: "Games", icon: Gamepad2 },
   { to: "/admin", label: "Admin", icon: Camera },
