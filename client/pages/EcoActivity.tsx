@@ -16,6 +16,7 @@ export default function EcoActivity() {
   const [photo, setPhoto] = useState<string | null>(null);
   const [desc, setDesc] = useState("");
   const [showSpin, setShowSpin] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
 
   return (
     <PixelLayout>
