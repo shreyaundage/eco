@@ -2,8 +2,8 @@ import PixelLayout from "@/components/PixelLayout";
 import { useState } from "react";
 
 const mockPosts = [
-  { id: 1, user: "Aarav", img: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop", text: "Planted a tree near the library!", likes: 88 },
-  { id: 2, user: "Mia", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop", text: "Cycle-to-class challenge complete.", likes: 54 },
+  { id: 1, user: "Aarav", img: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop", text: "Planted a tree near the library!", likes: 116 },
+  { id: 2, user: "Mia", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop", text: "Cycle-to-class challenge complete.", likes: 65 },
 ];
 
 export default function Feed() {
