@@ -22,12 +22,14 @@ export default function EcoActivity() {
       <div className="space-y-4">
         <h1 className="font-pixel text-xl">Eco Activity Logging</h1>
 
+        <div className="font-pixel mb-2">Select Category</div>
         <div className="overflow-x-auto">
           <div className="flex gap-2 min-w-max">
             {categories.map((c) => (
               <button
                 key={c.key}
                 onClick={() => setActive(c.key)}
+                aria-pressed={active===c.key}
                 className={`pixel-card flex items-center gap-2 px-4 py-2 ${active===c.key?"bg-secondary":""}`}
               >
                 <c.icon size={18} /> {c.label}
