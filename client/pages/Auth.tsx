@@ -31,12 +31,18 @@ export default function Auth() {
     <PixelLayout>
       <div className="max-w-md mx-auto p-4">
         <div className="pixel-card p-6 space-y-4">
-          <h1 className="font-pixel text-center text-lg">Welcome to Eco Campus</h1>
-          <p className="text-center text-sm opacity-80">Sign in to track your progress and unlock rewards.</p>
+          <h1 className="font-pixel text-center text-lg">
+            Welcome to Eco Campus
+          </h1>
+          <p className="text-center text-sm opacity-80">
+            Sign in to track your progress and unlock rewards.
+          </p>
 
           <form onSubmit={handleSubmit} className="space-y-3">
             <div>
-              <label className="block text-xs mb-1 font-pixel">Username or Email</label>
+              <label className="block text-xs mb-1 font-pixel">
+                Username or Email
+              </label>
               <input
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -68,11 +74,15 @@ export default function Auth() {
             </button>
           </form>
 
-          <div className="text-center text-sm opacity-70 font-pixel">No validation — enter any values to continue.</div>
+          <div className="text-center text-sm opacity-70 font-pixel">
+            No validation — enter any values to continue.
+          </div>
         </div>
 
         <div className="text-center mt-4">
-          <a href="/" className="text-xs opacity-70">Continue as guest (still requires login)</a>
+          <a href="/" className="text-xs opacity-70">
+            Continue as guest (still requires login)
+          </a>
         </div>
       </div>
     </PixelLayout>
