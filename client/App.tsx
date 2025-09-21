@@ -32,7 +32,6 @@ const App = () => (
           <Route path="/challenges" element={<Challenges />} />
           <Route path="/feed" element={<Feed />} />
           <Route path="/rewards" element={<Rewards />} />
-          <Route path="/ai-carbon" element={<Carbon />} />
           <Route path="/games" element={<Games />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/auth" element={<Auth />} />
