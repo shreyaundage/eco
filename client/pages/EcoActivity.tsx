@@ -59,7 +59,7 @@ export default function EcoActivity() {
               placeholder="Describe your activity (optional)"
               className="w-full pixel-border bg-card p-3 rounded-md min-h-20"
             />
-            <button onClick={()=>setShowSpin(true)} className="pixel-button w-full">Submit</button>
+            <button onClick={()=>{ setShowConfirm(true); setTimeout(()=>{ setShowConfirm(false); setShowSpin(true); }, 800); }} className="pixel-button w-full">Submit</button>
             <p className="text-xs opacity-70">AI verification will confirm photo</p>
           </section>
 
