@@ -1,12 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Leaf, Atom, CalendarDays, Gift, Gamepad2, Images } from "lucide-react";
+import { Home, Leaf, Atom, CalendarDays, Gift, Gamepad2, Images, Camera } from "lucide-react";
 import { ReactNode } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-const NAV = [
+const LEFT = [
   { to: "/", label: "Home", icon: Home },
   { to: "/eco", label: "EcoActivity", icon: Leaf },
   { to: "/dna", label: "DNA", icon: Atom },
-  { to: "/challenges", label: "Challenges", icon: CalendarDays },
+];
+const RIGHT = [
   { to: "/feed", label: "Feed", icon: Images },
   { to: "/rewards", label: "Rewards", icon: Gift },
   { to: "/games", label: "Games", icon: Gamepad2 },
@@ -34,8 +36,27 @@ export default function PixelLayout({ children }: { children: ReactNode }) {
       </header>
       <main className="flex-1 max-w-6xl w-full mx-auto p-3 sm:p-6">{children}</main>
       <nav className="sticky bottom-0 z-20 bg-card/90 backdrop-blur">
-        <div className="max-w-6xl mx-auto grid grid-cols-7 gap-1 p-2">
-          {NAV.map(({ to, label, icon: Icon }) => {
+        <div className="max-w-6xl mx-auto grid grid-cols-7 gap-1 p-2 items-center">
+          {/* left 3 */}
+          {LEFT.map(({ to, label, icon: Icon }) => {
+            const active = pathname === to;
+            return (
+              <Link key={to} to={to} aria-label={label} className={`pixel-border rounded-md px-2 py-1 flex flex-col items-center gap-1 ${active ? "bg-secondary" : "bg-card"}`}>
+                <Icon size={18} />
+                <span className="text-[10px] leading-none">{label}</span>
+              </Link>
+            );
+          })}
+
+          {/* center carbon button */}
+          <Link to="/carbon" aria-label="Carbon" className="flex items-center justify-center">
+            <div className="carbon-button carbon-glow">
+              <Camera size={18} />
+            </div>
+          </Link>
+
+          {/* right 3 */}
+          {RIGHT.map(({ to, label, icon: Icon }) => {
             const active = pathname === to;
             return (
               <Link key={to} to={to} aria-label={label} className={`pixel-border rounded-md px-2 py-1 flex flex-col items-center gap-1 ${active ? "bg-secondary" : "bg-card"}`}>
