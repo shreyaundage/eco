@@ -6,12 +6,24 @@ import { Link } from "react-router-dom";
 export default function Index() {
   const [ecoPoints] = useState(43);
   const [showJoinSuccess, setShowJoinSuccess] = useState(false);
+  const [tipIdx, setTipIdx] = useState(0);
+  const tips = [
+    'Refill your bottle instead of buying plastic.',
+    'Take the stairs to save elevator energy!',
+    'Turn off the lights when leaving a room.',
+    'Bring a reusable bag for campus shopping.'
+  ];
   const leaderboard = [
     { name: "Aarav", pts: 320 },
     { name: "Mia", pts: 289 },
     { name: "Noah", pts: 270 },
     { name: "Zara", pts: 244 },
   ];
+
+  useEffect(()=>{
+    const t = setInterval(()=> setTipIdx(i=> (i+1)%tips.length), 5000);
+    return ()=> clearInterval(t);
+  },[]);
 
   return (
     <PixelLayout>
@@ -27,18 +39,22 @@ export default function Index() {
         </section>
         <aside className="pixel-card space-y-2">
           <div className="font-pixel">Highlights</div>
-          <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 text-sm">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm">
             <Link to="/dna" className="pixel-card flex items-center gap-2"><Leaf size={16}/>Eco-DNA</Link>
             <Link to="/rewards" className="pixel-card flex items-center gap-2"><Gift size={16}/>Rewards</Link>
             <Link to="/eco" className="pixel-card flex items-center gap-2"><Zap size={16}/>Log Activity</Link>
             <Link to="/challenges" className="pixel-card flex items-center gap-2"><Trophy size={16}/>Leaderboards</Link>
+            <Link to="/admin" className="pixel-card flex items-center gap-2"><Camera size={16}/>Admin</Link>
           </div>
         </aside>
         <section className="md:col-span-2 pixel-card">
           <div className="font-pixel mb-2">Talking Tree</div>
           <div className="flex gap-3 items-center">
-            <div className="w-10 h-10 rounded-full bg-primary"/>
-            <div className="flex-1 pixel-border bg-card px-3 py-2">Refill your bottle instead of buying plastic.</div>
+            <div className="w-12 h-12 rounded-full bg-primary grid place-items-center">🌳</div>
+            <div className="flex-1 pixel-border bg-card px-3 py-2 relative">
+              <div className="font-pixel animate-pulse">{tips[tipIdx]}</div>
+              <div className="absolute right-2 bottom-2 opacity-40 text-xs">Tip</div>
+            </div>
             <BotIcon />
           </div>
         </section>
