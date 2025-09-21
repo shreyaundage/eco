@@ -18,6 +18,7 @@ const LEFT = [
 ];
 const RIGHT = [
   { to: "/feed", label: "Feed", icon: Images },
+  { to: "/ai-carbon", label: "AI Carbon", icon: Camera, isCarbon: true },
   { to: "/challenges", label: "Challenges", icon: CalendarDays },
   { to: "/rewards", label: "Rewards", icon: Gift },
   { to: "/games", label: "Games", icon: Gamepad2 },
