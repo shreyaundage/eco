@@ -1,4 +1,13 @@
-import { Home, Leaf, Atom, CalendarDays, Gift, Gamepad2, Images, Camera } from "lucide-react";
+import {
+  Home,
+  Leaf,
+  Atom,
+  CalendarDays,
+  Gift,
+  Gamepad2,
+  Images,
+  Camera,
+} from "lucide-react";
 import { ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -29,18 +38,27 @@ export default function PixelLayout({ children }: { children: ReactNode }) {
             <div className="text-xs opacity-80 -mt-1">Track. Play. Grow.</div>
           </div>
           <div className="ml-auto flex gap-2 items-center">
-            <Link to="/auth" className="pixel-button text-xs px-3 py-2">Sign in</Link>
+            <Link to="/auth" className="pixel-button text-xs px-3 py-2">
+              Sign in
+            </Link>
           </div>
         </div>
       </header>
-      <main className="flex-1 max-w-6xl w-full mx-auto p-3 sm:p-6">{children}</main>
+      <main className="flex-1 max-w-6xl w-full mx-auto p-3 sm:p-6">
+        {children}
+      </main>
       <nav className="sticky bottom-0 z-20 bg-card/90 backdrop-blur">
         <div className="max-w-6xl mx-auto grid grid-cols-7 gap-1 p-2 items-center">
           {/* left 3 */}
           {LEFT.map(({ to, label, icon: Icon }) => {
             const active = pathname === to;
             return (
-              <Link key={to} to={to} aria-label={label} className={`pixel-border rounded-md px-2 py-1 flex flex-col items-center gap-1 ${active ? "bg-secondary" : "bg-card"}`}>
+              <Link
+                key={to}
+                to={to}
+                aria-label={label}
+                className={`pixel-border rounded-md px-2 py-1 flex flex-col items-center gap-1 ${active ? "bg-secondary" : "bg-card"}`}
+              >
                 <Icon size={18} />
                 <span className="text-[10px] leading-none">{label}</span>
               </Link>
@@ -48,7 +66,11 @@ export default function PixelLayout({ children }: { children: ReactNode }) {
           })}
 
           {/* center carbon button */}
-          <Link to="/carbon" aria-label="Carbon" className="flex items-center justify-center">
+          <Link
+            to="/carbon"
+            aria-label="Carbon"
+            className="flex items-center justify-center"
+          >
             <div className="carbon-button carbon-glow">
               <Camera size={18} />
             </div>
@@ -58,7 +80,12 @@ export default function PixelLayout({ children }: { children: ReactNode }) {
           {RIGHT.map(({ to, label, icon: Icon }) => {
             const active = pathname === to;
             return (
-              <Link key={to} to={to} aria-label={label} className={`pixel-border rounded-md px-2 py-1 flex flex-col items-center gap-1 ${active ? "bg-secondary" : "bg-card"}`}>
+              <Link
+                key={to}
+                to={to}
+                aria-label={label}
+                className={`pixel-border rounded-md px-2 py-1 flex flex-col items-center gap-1 ${active ? "bg-secondary" : "bg-card"}`}
+              >
                 <Icon size={18} />
                 <span className="text-[10px] leading-none">{label}</span>
               </Link>
