@@ -17,9 +17,11 @@ const LEFT = [
   { to: "/dna", label: "DNA", icon: Atom },
 ];
 const RIGHT = [
+  { to: "/challenges", label: "Challenges", icon: CalendarDays },
   { to: "/feed", label: "Feed", icon: Images },
   { to: "/rewards", label: "Rewards", icon: Gift },
   { to: "/games", label: "Games", icon: Gamepad2 },
+  { to: "/admin", label: "Admin", icon: Camera },
 ];
 
 export default function PixelLayout({ children }: { children: ReactNode }) {
