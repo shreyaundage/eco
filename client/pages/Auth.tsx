@@ -73,7 +73,6 @@ export default function Auth() {
               {submitting ? "Signing in..." : "Sign In"}
             </button>
           </form>
-
         </div>
 
         <div className="text-center mt-4">
