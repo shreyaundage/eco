@@ -18,7 +18,7 @@ export default function Games() {
           <section className="pixel-card">
             <div className="font-pixel mb-2">Plant Scanner</div>
             <div className="pixel-card h-40 grid place-items-center">Click/Upload Photo</div>
-            <p className="text-sm mt-2">Upload a picture of your nearby tree or plant and let our AI scan it and tell you about the tree and how much it reduces carbon emission</p>
+            <p className="text-sm mt-2">This tool moved to a dedicated Carbon Emission Calculator — <a href="/carbon" className="underline">Open Carbon Calculator</a></p>
           </section>
         </div>
       </div>
